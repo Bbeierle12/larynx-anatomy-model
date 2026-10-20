@@ -1,0 +1,7 @@
+build*/
+out*/
+*.ply
+*.npz
+*.npy
+*.3mf
+__pycache__/
