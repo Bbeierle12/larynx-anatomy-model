@@ -107,7 +107,7 @@ meta = {'Title': os.environ.get('TITLE', 'Larynx and upper trachea, life size (B
 
 def whole(multi):
     ps = [dict(name=n, V=m.vertices - ctr, F=m.faces, extruder=(SLOT[g] if multi else 1), grp=g) for n, g, m in parts]
-    return [dict(name='Larynx (life size)', parts=ps, offset=(0, 0))]
+    return [dict(name='Larynx (life size)', parts=ps, offset=(float(os.environ.get('OFF_X', '0')), float(os.environ.get('OFF_Y', '0'))))]   # OFF_Y>0 moves the whole model toward the back, clearing the front-left corner for the wipe tower
 
 import manifold3d as mf
 def to_mf(m):
@@ -144,14 +144,14 @@ def halves(multi):
         objs.append(dict(name=label, parts=ps, offset=(0, 0 if HALF else (-1 if side < 0 else 1) * (half_depth / 2 + (2.5 if SCALE > 1.5 else 4.0)))))
     return objs
 
-KINDS = [('whole', whole), ('halves', halves)] if not os.environ.get('HALF') else [('half' + os.environ['HALF'], halves)]
-MULTIS = (False, True) if not os.environ.get('ONLY_MULTI') else (True,)
+KINDS = ([('whole', whole), ('halves', halves)] if not os.environ.get('ONLY_WHOLE') else [('whole', whole)]) if not os.environ.get('HALF') else [('half' + os.environ['HALF'], halves)]
+MULTIS = (False, True) if not (os.environ.get('ONLY_MULTI') or os.environ.get('ONLY_SINGLE')) else ((True,) if os.environ.get('ONLY_MULTI') else (False,))
 for kind, fn in KINDS:
     for multi in MULTIS:
         objs = fn(multi)
         st = base_settings(multi)
         if kind.startswith('half'):
-            st['brim_type'] = 'auto_brim'; st['support_on_build_plate_only'] = '0'
+            st['brim_type'] = os.environ.get('BRIM', 'auto_brim'); st['support_on_build_plate_only'] = '0'     # BRIM=no_brim when the half spans the whole bed
             if SCALE > 1.5: st['brim_width'] = '3'
         name = f'{PREFIX}_{kind}_{f"{NSLOT}colour" if multi else "1colour"}.3mf'
         write(f'{OUT}/{name}', objs, project_settings=st, metadata=meta, thumbnail_png=thumb(objs))

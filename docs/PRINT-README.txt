@@ -1,8 +1,11 @@
 LARYNX (BodyParts3D 4.0 rebuild) - print notes
 ================================================
 
-Five versions live in this folder. Newest first:
+Six versions live in this folder. Newest first:
 
+  Larynx_v6_2x_*        version 6, stages 3b and 3c (fat-filled spaces, saccules, joint capsules,
+                        piriform fossae, constrictors, hypopharynx, oesophagus, tongue base), 2x
+  Larynx_v6_lifesize_*  the same geometry at 1:1
   Larynx_v5_2x_*        version 5, wider framework + stage 3 (fold cover, false folds,
                         ventricle, membranes, aryepiglottic folds, tubercles), 2x life size
   Larynx_v5_lifesize_*  the same geometry at 1:1
@@ -16,6 +19,133 @@ Five versions live in this folder. Newest first:
 All files are Bambu Studio projects for the A1 mini, 0.4 mm nozzle, Bambu PLA
 Basic, test-sliced in Bambu Studio 02.08.02.61 with no warnings. The "sliced -
 ready to print" folder has the sliced versions.
+
+
+VERSION 6 - stages 3b and 3c: the spaces, the fossae and the hypopharynx -
+what changed from version 5
+---------------------------------------------------------------------------
+The decision behind this version: show as much of the anatomy as possible,
+and accept that the model becomes a solid block that has to be printed in
+halves to be seen inside. 81 named parts (was 65). Everything new is
+constructed from published dimensions except the two inferior constrictors,
+which are BodyParts3D meshes warped onto the frame. An independent reviewer
+that had not seen the build checked it three times after the clean rebuild; what it
+still flagged is under "Known limits".
+
+1. Framework. The epiglottis is lifted 5 mm (petiole and tip alike) so the
+   thyro-epiglottic ligament attaches to the inner thyroid angle ABOVE the
+   vestibular ligaments, as in life (v5 had the order inverted); the ligament
+   sits on the floor of the thyroid notch. Leaf length unchanged (30.5 mm).
+   The cricothyroid muscles are bedded onto the membrane and arch (no gap
+   under them) and their oblique part fans onto the lower border of the
+   lamina, which closes the lower paraglottic space from the outside.
+
+2. Stage 3b - spaces, saccules, capsules, tendon.
+   Pre-epiglottic fat  3.64 mL filling the space behind the thyrohyoid
+       membrane and in front of the epiglottis, down to the false-fold tops.
+   Paraglottic fat (R, L)  0.44 mL per side: the wing beside the
+       quadrangular membrane, the pocket between the ventricle lining and the
+       lamina, and the slit lateral of the conus under the fold. Total fat
+       4.5 mL (CT in men: 4.5 +/- 1.0 mL for both spaces, Hermans 1997).
+       Fat has its own colour (slot 7, yellow).
+   Ventricle lateral walls (R, L)  Now a 0.8 mm mucosal lining of the
+       ventricle with fat behind it (in v5 the whole slot out to the lamina
+       was "mucosa").
+   Saccules (R, L)  8 mm blind pouch rising from the front of each ventricle
+       between the false fold and the lamina, lateral of the vestibular
+       ligament, 1.6 tapering to 0.9 mm radius.
+   Anterior commissure tendon (Broyles)  0.5-0.8 mm cone from inside the
+       thyroid angle to the vocal ligaments' ends.
+   Joint capsules (4)  0.8 mm sleeves on the joint line of both
+       cricoarytenoid and both cricothyroid joints.
+
+3. Stage 3c - piriform fossae and hypopharynx.
+   Piriform fossae (R, L)  Open recesses lateral of the aryepiglottic fold,
+       quadrangular membrane and arytenoid, medial of the lamina and
+       thyrohyoid membrane, apex at the vocal-fold level; 1.73 cm3 each
+       (cadaver about 1.8), lined with 0.8 mm of mucosa. They are 8.5-9.5 mm
+       wide against 14-15 in life because this framework's lamina is close.
+   Inferior pharyngeal constrictors (R, L)  BodyParts3D meshes warped onto
+       the lamina (oblique line) and cricoid, meeting at the median raphe,
+       continuous with the oesophagus below.
+   Hypopharyngeal mucosa  The hypopharynx is collapsed in the source (the
+       constrictor lies on the back of the larynx), so the mucosa is a 0.8 mm
+       layer over the cricoid lamina, arytenoid backs and PCA wherever the
+       constrictor lies within 2.5 mm, down to the oesophageal inlet: a slit,
+       not an open lumen.
+   Oesophagus (upper end)  Collapsed 20 x 9 mm muscular tube on the
+       membranous trachea, base cut to the cricoid's lower border, with a
+       12 x 1.4 mm slit lumen.
+   Tongue base and vallecula  A flat-fronted block above the hyoid with the
+       two vallecula pockets, the median glossoepiglottic fold and the lateral
+       folds. A landmark for the laryngoscopic view, not a tongue.
+
+Airway: glottis 99 mm2 between the covered folds, 7.7 mm inscribed
+circle; a 7.5 mm ball still passes from the tracheal base up through the
+glottis. The airway ring closes at every layer.
+
+Known limits (reviewer's residual list after the second pass):
+  - The thyro-epiglottic ligament's thyroid end sits in the notch 0.7 mm off
+    the cartilage, held by the anterior vestibule wall; lowering it would put
+    it level with the vestibular ligaments again.
+  - The postcricoid mucosa meets the oesophageal inlet across a 0.4 mm seam
+    and the arytenoid backs across a hairline; both close in the union.
+  - Feather edges under 0.3 mm at 1:1 on the quadrangular membranes (50 mm2
+    each), the ventricle linings and the vestibular mucosa: 0.6 mm at 2x.
+    0.8% of the 2x surface is under 0.8 mm.
+  - The piriform fossa apex sits against the back of the ventricle with one
+    0.8 mm layer between (1.5-2 mm of paraglottic tissue would be typical),
+    and the fossae are 8.5-9.5 mm wide against 14-15 in life.
+  - The hypopharynx is collapsed: the constrictor lies directly on the
+    larynx with the mucosa as an 0.8 mm layer between, not an open lumen.
+  - The tongue base is a flat-fronted block; the constrictors' upper border
+    reaches 8.6 mm above the hyoid (no middle constrictor yet); the oblique
+    cricothyroid parts are asymmetric in the source (419 vs 496 mm3); the
+    arytenoid medial faces below the vocal process are unlined (since v5).
+  - A few embedded crumbs (two 5 mm3 pieces of the anterior vestibule wall,
+    7 mm3 of the right ventricle lining) are harmless in the union.
+
+VERSION 6 - files
+-----------------
+Seven filament slots: bone (beige), hyaline cartilage (cyan), elastic
+cartilage (yellow), ligament and membrane (pink), muscle (red), mucosa
+(salmon) and fat (sunflower yellow), so the multi-colour files are "7colour".
+The AMS lite has four slots: merge slots in Bambu Studio to taste (fat into
+elastic cartilage and mucosa into ligament are the least confusing merges) or
+accept the manual changes. The 2x halves print lying on their cut face with
+the long axis along the bed, one half per file, with the wipe tower in the
+front-left corner.
+
+Everything inside - fat, saccules, capsules, fossae, mucosa - is only visible
+on the halves. The whole model prints as a block with the airway, vallecula,
+fossae and oesophageal slit as its only cavities.
+
+Honest reading of the estimates: the 7-colour files are purge-dominated now
+that the block is solid (a 2x half is 13 h / 170 g in one colour and 53 h /
+657 g in seven, with 1,325 changes). The practical print is the 1-colour
+halves; merge to four slots or paint the cut face if colour matters.
+
+2x scale (179 mm tall; the lifted epiglottis and tongue block add 17 mm):
+
+Larynx_v6_2x_whole_1colour.3mf         23 h 04 min, 331 g
+Larynx_v6_2x_halfR_1colour.3mf         13 h 09 min, 171 g
+Larynx_v6_2x_halfL_1colour.3mf         13 h 10 min, 170 g
+  Pins: 1.75 mm filament cut to 16 mm (hyoid) and 10 mm (cricoid).
+Larynx_v6_2x_whole_7colour.3mf         126 h 03 min, 1630 g, 3416 colour changes (mostly purge)
+Larynx_v6_2x_halfR_7colour.3mf         52 h 56 min, 657 g, 1325 colour changes (mostly purge)
+Larynx_v6_2x_halfL_7colour.3mf         52 h 57 min, 657 g, 1326 colour changes (mostly purge)
+  (2x halves: one half per file since v6 - two halves side by side need 199 mm
+  of the 180 mm bed. Each half lies on its cut face with the long axis along
+  the bed, 178.8 mm, so there is no brim; the wipe tower is at the left edge.
+  The whole 7-colour model is shifted 15 mm back to clear the tower.)
+
+1:1 (89 mm tall):
+
+Larynx_v6_lifesize_whole_1colour.3mf   5 h 25 min, 54 g
+Larynx_v6_lifesize_halves_1colour.3mf  5 h 55 min, 60 g
+  Pins: 7.5 mm (hyoid), 4.5 mm (cricoid).
+Larynx_v6_lifesize_whole_7colour.3mf   60 h 10 min, 725 g, 1714 colour changes (mostly purge)
+Larynx_v6_lifesize_halves_7colour.3mf  26 h 02 min, 307 g, 661 colour changes (mostly purge)
 
 
 VERSION 5 - wider framework and stage 3 (vocal-fold cover and supraglottic
@@ -101,7 +231,7 @@ Larynx_v5_2x_halfL_6colour.3mf         40 h 02 min, 482 g, 1023 colour changes (
   (halves 6-colour: one half per file, lying on its side along the bed; the
   six-slot wipe tower sits in the front-left corner)
 
-1:1 (81 mm tall):
+1:1 (89 mm tall):
 
 Larynx_v5_lifesize_whole_1colour.3mf   3 h 07 min, 31 g
 Larynx_v5_lifesize_halves_1colour.3mf  3 h 45 min, 35 g
@@ -184,7 +314,7 @@ Larynx_v4_2x_halfR_5colour.3mf         31 h 10 min, 372 g, 784 colour changes (m
 Larynx_v4_2x_halfL_5colour.3mf         31 h 13 min, 373 g, 785 colour changes (mostly purge)
   (halves 5-colour: one half per file, as in v3)
 
-1:1 (81 mm tall):
+1:1 (89 mm tall):
 
 Larynx_v4_lifesize_whole_1colour.3mf   2 h 33 min, 27 g
 Larynx_v4_lifesize_halves_1colour.3mf  3 h 06 min, 30 g
@@ -258,7 +388,7 @@ Larynx_v3_2x_halfR_4colour.3mf    24 h 31 min, 590 changes, ~288 g
 Larynx_v3_2x_halfL_4colour.3mf    24 h 37 min, 591 changes, ~289 g
   (one half per file: two 2x halves plus the wipe tower do not fit the bed)
 
-1:1 (81 mm tall):
+1:1 (89 mm tall):
 
 Larynx_v3_lifesize_whole_1colour.3mf    2 h 05 min, 23.5 g
 Larynx_v3_lifesize_halves_1colour.3mf   2 h 49 min, 27.6 g

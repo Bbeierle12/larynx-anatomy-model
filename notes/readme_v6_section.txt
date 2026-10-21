@@ -6,7 +6,7 @@ and accept that the model becomes a solid block that has to be printed in
 halves to be seen inside. {PARTS} named parts (was 65). Everything new is
 constructed from published dimensions except the two inferior constrictors,
 which are BodyParts3D meshes warped onto the frame. An independent reviewer
-that had not seen the build checked it twice after the clean rebuild; what it
+that had not seen the build checked it three times after the clean rebuild; what it
 still flagged is under "Known limits".
 
 1. Framework. The epiglottis is lifted 5 mm (petiole and tip alike) so the
@@ -79,11 +79,16 @@ Everything inside - fat, saccules, capsules, fossae, mucosa - is only visible
 on the halves. The whole model prints as a block with the airway, vallecula,
 fossae and oesophageal slit as its only cavities.
 
-2x scale (162 mm tall):
+Honest reading of the estimates: the 7-colour files are purge-dominated now
+that the block is solid (a 2x half is 13 h / 170 g in one colour and 53 h /
+657 g in seven, with 1,325 changes). The practical print is the 1-colour
+halves; merge to four slots or paint the cut face if colour matters.
+
+2x scale (179 mm tall; the lifted epiglottis and tongue block add 17 mm):
 
 {FILES2X}
 
-1:1 (81 mm tall):
+1:1 (89 mm tall):
 
 {FILES1X}
 

@@ -66,6 +66,11 @@ if 'pharynx' in which:
         f = f'{B}/occ_{pid:02d}.npz'
         if not os.path.exists(f): continue
         o, a, b = load_occ(pid); larf[a[0]:b[0], a[1]:b[1], a[2]:b[2]] |= o
+    for pid in (11, 82):                                                             # at the inlet the lining continues over the back of the cricotracheal junction onto the oesophagus's upper rim
+        f = f'{B}/occ_{pid:02d}.npz'
+        if not os.path.exists(f): continue
+        o, a, b = load_occ(pid); zz = LO[2] + P * np.arange(a[2], b[2]); keep = (zz >= Z0 + E('PH_INLET_Z', '24.0'))
+        larf[a[0]:b[0], a[1]:b[1], a[2]:b[2]] |= o & keep[None, None, :]
     lar = crop(larf).copy(); del larf
     anyf = all_occ(skip=(80, 81, 83)); anyf[:, :, :k0] = True; anyp = crop(anyf).copy(); del anyf
     Dc = edt.edt(~con, anisotropy=(P, P, P), black_border=False); Dl = edt.edt(~lar, anisotropy=(P, P, P), black_border=False)
