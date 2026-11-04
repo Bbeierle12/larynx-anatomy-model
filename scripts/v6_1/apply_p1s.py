@@ -3,10 +3,11 @@ system presets (p1s_machine_flat.json, p1s_pla_basic_flat.json); the process key
 overrides in p1s_process_larynx.json. Usage: python apply_p1s.py in.3mf out.3mf"""
 import json, sys, zipfile
 src, dst = sys.argv[1], sys.argv[2]
+overrides = sys.argv[3] if len(sys.argv) > 3 else 'p1s_process_larynx.json'   # optional third argument: another process override file
 META = {'name', 'type', 'from', 'inherits', 'instantiation', 'setting_id', 'compatible_printers', 'compatible_printers_condition'}
 mach = json.load(open('p1s_machine_flat.json', encoding='utf-8'))
 fila = json.load(open('p1s_pla_basic_flat.json', encoding='utf-8'))
-ov = json.load(open('p1s_process_larynx.json', encoding='utf-8'))
+ov = json.load(open(overrides, encoding='utf-8'))
 zin = zipfile.ZipFile(src)
 pj = json.loads(zin.read('Metadata/project_settings.config'))
 old = dict(pj)
